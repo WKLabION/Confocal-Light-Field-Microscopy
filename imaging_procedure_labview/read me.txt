@@ -1,0 +1,26 @@
+This folder is used to syncronize the imaging acquisition , hardware execution and mouse behavior monitoring.
+
+Prerequisites:
+PC with Windows 10 operating system
+At least 96 GB RAM
+NI board PCIe-6363
+LabVIEW, 64-bit, version 2015 or higher
+NI DAQmx module, version 15 or higher
+NI Vision Acquision module, version 15 or higher
+PVcam from Kinetix ,version 3.10.0.1 or higher
+
+Installation guide:
+Install all the software in the prerequisites in order. The typical install time on a "normal" desktop computer is about 1 hour.
+
+flyback scan with VIS monitor.vi
+Please run the vi in the complete folder environment. This program could run directly when the camera and NI cards are connected to the computer directly (see 'wiring guide' below).
+
+subVI\
+This folder contains sub-VIs used in flyback scan with VIS monitor.vi.
+
+Wiring guide:
+The trigger output port of the Kinetix camera is connected to /Dev0/PFI13, which triggers the following tasks:
+1. CAM Clock task: Counter output. Trigger is /Dev0/PFI13. Terminal is /Dev0/PFI0. 
+2. galvo clock task: Counter output. Terminal is /Dev0/PFI11. Clock is /Dev0/PFI0.
+3. DO galvo task: Digital output. Terminal is /Dev0/port0/line0:7. Terminal links to the galvo control board. Clock is /Dev0/PFI11. Trigger is /Dev0/PFI0.
+4. AI minitor task: Analog input. Clock is /Dev0/PFI13. Terminal is /Dev0/ai6. Terminal links to the light intensity monitor.

@@ -1,0 +1,32 @@
+Prerequisites:
+1. MATLAB version R2019b or higher
+2. 16GB RAM
+
+
+Code: 
+1. To successfully extract the voltage signals from the example data, you need to run the "motion_pca_correction1.m" first and get the registrated image stack (example.mat) and the PCA component file (pca.mat). 
+
+2. After that, you need to run the "get_spikeinfo_bkg_1fov_automatic2.m" to get the spike traces of ROIs in the field of view (spikeinfo.mat). A image stack(example_crt.tif) with global background correction will be generated in the folder"example_data".
+
+3. In the end, you need to run the "remove_duplicate3.m" to remove the repeated ROIs.  You need to manually remove the ROI with same activities by reply "y"or press "enter" when the program pops up "more than one neuron?:" and input a string of new index when the program pops up "input the neuron groups:". 
+The index input rule assigns the same sequence number to the same ROI, such as [1 1 2 2] or [1 2 1 2], etc.
+For example, after preliminary analysis by the program, Figure 1000 shows three possible duplicate ROIs. If you manually compare the positions (Figure1000) and signals (Figure1, 2, 3) of the three ROIs and think that they are not duplicate ROIs, you need to enter "y", and then enter "[1 2 3]" to indicate that they are 3 different ROIs, otherwise press "enter" to continue.
+
+
+Data format:
+All the infomation extracted from the voltage imaging data is stored in "result.mat". The effective ROIs index are stored in "Data.ActiveIdxListCm(Layer,Index)"(result.mat). The voltage signals are stored in "Data.RawTraceMatrix".
+
+
+example_data\
+This folder contains an example reconstructed image stack for signal extraction and a standard deviation image of the temporal example stack.
+The example data is a small region of the field of view in Figure 2 at the depth of 140 µm with a size of 45 pixel x 70 pixel x 15980 frames.
+
+
+subfunctions\
+This folder contains subfunctions used in signal extraction.
+
+
+PS : a few perameters have been modified because the example data (45 pixel * 70 pixel) is much smaller than the real data (400 pixel * 400 pixel). 
+[1] motion_pca_correction1.m: BNxy(binning size) was 10 but now 4; MaxShift(max shift pixel number) was 10 but now 4; 
+[2] get_spikeinfo_bkg_1fov_automatic2.m: NoiseCrtN(top N principal component) was 20 but now 6;
+
