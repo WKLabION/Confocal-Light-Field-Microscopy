@@ -67,7 +67,7 @@ for ii=1:length(ROIs)
 end
     
 NumberSpikeNeuron=count_spike_neuron(Neuron)
-save([FilePath  'spikeinfo.mat'],'Neuron','Param','TimePoint');
+save([FilePath  'spikeinfo.mat'],'Neuron','Param');
 
     
  %%   
