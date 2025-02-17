@@ -6,7 +6,7 @@ Code:
 Directely run the "lfm_fast_withPSF.m" under the file path of "data_reconstruction" folder.  Varibles in the first section could be modified by the instruction in code comments.
 
 Data format:
-The light field imaging reconstruction results in a 4D dataset(x, y, z, t), and for visualization purposes, a 3D image stack with 400 pixels * 400 pixels * 10 frames(x, y, t) is generated, where each stack corresponds to a particular depth and contains a time-series of images showing the neural signal changes over time.
+The light field imaging reconstruction results in a 4D dataset(x, y, z, t), and for visualization purposes, a 3D image stack with 400 pixels * 400 pixels * 15 frames(x, y, t) is generated, where each stack corresponds to a particular depth and contains a time-series of images showing the neural signal changes over time.
 
 example_data\
 This folder contains a series of raw images from Figure 2. Due to the limitation on the data upload size, there are only 15 images in the 'example_data'
